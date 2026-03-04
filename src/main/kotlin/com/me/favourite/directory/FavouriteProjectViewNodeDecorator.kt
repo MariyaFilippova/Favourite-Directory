@@ -18,10 +18,6 @@ class FavouriteProjectViewNodeDecorator : ProjectViewNodeDecorator, DumbAware {
         val storage = FavouriteDirectoryStorage.getInstance(node.project)
         if (!storage.isDirectoryFavourite(value.virtualFile)) return
 
-        if (node is MyPsiDirectoryNode) {
-            data.locationString = data.presentableText
-            data.presentableText = data.presentableText?.substringAfterLast("/")
-        }
         data.background = JBColor(
             Color(237, 235, 251, 128),
             Color(71, 39, 60, 60)
